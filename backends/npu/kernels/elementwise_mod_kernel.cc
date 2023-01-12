@@ -30,7 +30,7 @@ void ModuloRawKernel(const Context& dev_ctx,
 
   bool direct_compute = false;
   if (y_dims.size() == 0 || x_dims.size() == 0) {
-    direct_compute = false;
+    direct_compute = true;
   } else if (x_dims.size() >= y_dims.size()) {
     direct_compute = y_dims == phi::slice_ddim(x_dims, axis, x_dims.size());
   } else {
