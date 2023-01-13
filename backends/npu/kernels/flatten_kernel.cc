@@ -38,7 +38,6 @@ void FlattenKernel(const Context& dev_ctx,
   dev_ctx.template Alloc<T>(out);
 
   const auto& in_dims = x.meta().dims;
-  VLOG(0) << "out size:" << out->dims().size();
   if (in_dims.size() == 0) {
     TensorCopy(dev_ctx, x, true, out);
     out->Resize(phi::make_ddim(std::vector<int64_t>{1}));
